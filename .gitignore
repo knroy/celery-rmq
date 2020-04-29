@@ -1,0 +1,5 @@
+.idea
+env
+celery_rmq.egg-info
+build
+dist
