@@ -2,7 +2,7 @@ from __future__ import absolute_import, unicode_literals
 
 from celery import shared_task
 
-from tests.app import app_provider
+from sample.standalone import app_provider
 
 
 @shared_task
