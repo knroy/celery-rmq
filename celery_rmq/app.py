@@ -10,7 +10,7 @@ class CeleryAppProvider:
 
     def __init__(self, app_name=None, namespace=None, broker_url=None,
                  installed_apps=None, task_autodiscover=True,
-                 object_config=None):
+                 object_config=None, silent=False, force=False, **kwargs):
         if not app_name:
             app_name = DEFAULT_APP_NAME
         if not broker_url:
@@ -21,8 +21,8 @@ class CeleryAppProvider:
             object_config = DEFAULT_CONFIG_SETTINGS
         if not namespace:
             namespace = DEFAULT_NAMESPACE
-        self.app = Celery(app_name, broker=broker_url)
-        self.app.config_from_object(object_config, namespace=namespace)
+        self.app = Celery(app_name, broker=broker_url, **kwargs)
+        self.app.config_from_object(object_config, silent=silent, force=force, namespace=namespace)
         if task_autodiscover:
             self.app.autodiscover_tasks(installed_apps)
 
