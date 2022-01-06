@@ -11,7 +11,7 @@ VERSION = "0.0.2"
 # What packages are required for this module to be executed?
 
 REQUIRED = [
-    "celery==4.4.2",
+    "celery==5.2.2",
     "kombu==4.6.8"
 ]
 
